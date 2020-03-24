@@ -1,0 +1,10 @@
+.Failure h2,
+p {
+  padding: 10px;
+  text-align: center;
+}
+.Failure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

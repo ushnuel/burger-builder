@@ -1,0 +1,12 @@
+.Success h1 {
+  padding: 10px;
+  color: green;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.Success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
