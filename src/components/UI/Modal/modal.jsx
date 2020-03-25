@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import BackDrop from '../Backdrop/backdrop';
 import './modal.css';
-import Aux from '../../../hoc/Auxe/Aux';
 
 class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return (
-      nextProps.show !== this.props.show ||
-      nextProps.children !== this.props.children
-    );
+    return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
   }
   render() {
     const { show, children, cancelPurchase } = this.props;
@@ -17,12 +13,12 @@ class Modal extends Component {
       opacity: show ? '1' : '0',
     };
     return (
-      <Aux>
+      <>
         <BackDrop onCancel={cancelPurchase} show={show} />
         <div className='Modal' style={style}>
           {children}
         </div>
-      </Aux>
+      </>
     );
   }
 }

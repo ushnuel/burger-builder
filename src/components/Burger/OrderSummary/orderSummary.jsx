@@ -1,5 +1,4 @@
 import React from 'react';
-import Aux from '../../../hoc/Auxe/Aux';
 import utils from '../../../utils';
 import '../../UI/Button/button.css';
 
@@ -8,28 +7,27 @@ const orderSummary = (props) => {
   const ingredientSummary = utils(ingredients).map((ingKey) => {
     return (
       <li key={ingKey}>
-        <span style={{ textTransform: 'capitalize' }}>{ingKey}</span>:{' '}
-        {ingredients[ingKey]}
+        <span style={{ textTransform: 'capitalize' }}>{ingKey}</span>: {ingredients[ingKey]}
       </li>
     );
   });
 
   return (
-    <Aux>
+    <>
       <h3>Your Order Summary</h3>
       <ul>{ingredientSummary}</ul>
       <p>
         <strong>Total Price: {totalPrice.toFixed(2)}</strong>
       </p>
-      <div className="OrderBtn">
-        <button onClick={cancelPurchase} className="Button Danger">
+      <div className='OrderBtn'>
+        <button onClick={cancelPurchase} className='Button Danger'>
           CANCEL
         </button>
-        <button onClick={continuePurchase} className="Button Success">
+        <button onClick={continuePurchase} className='Button Success'>
           CONTINUE
         </button>
       </div>
-    </Aux>
+    </>
   );
 };
 

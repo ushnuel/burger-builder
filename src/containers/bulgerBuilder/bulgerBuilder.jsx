@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import axios from '../../axios-order';
-import Aux from '../../hoc/Auxe/Aux';
 import Burger from '../../components/Burger/burger';
 import BuildControls from '../../components/Burger/BuildControls/buildControls';
 import Modal from '../../components/UI/Modal/modal';
@@ -62,7 +61,7 @@ class BulgerBuilder extends Component {
 
     if (this.props.ingredients) {
       burger = (
-        <Aux>
+        <>
           <Burger ingredients={this.props.ingredients} />
           <BuildControls
             addedIngredient={this.props.onIngredientAdded}
@@ -73,7 +72,7 @@ class BulgerBuilder extends Component {
             isOrdered={this.purchaseOrderHandler}
             isAuth={this.props.isAuthenticated}
           />
-        </Aux>
+        </>
       );
 
       orderSummary = (
@@ -91,12 +90,12 @@ class BulgerBuilder extends Component {
     }
 
     return (
-      <Aux>
+      <>
         <Modal show={this.state.isOrdered} cancelPurchase={this.purchaseCancelHandler}>
           {orderSummary}
         </Modal>
         {burger}
-      </Aux>
+      </>
     );
   }
 }
